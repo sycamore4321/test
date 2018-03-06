@@ -2,7 +2,7 @@
 
 mb_internal_encoding("utf8");
 
-$pdo= new PDO("mysql:dbname=lesson_isk; host=localhost;" ,"root","mysql");
+$pdo= new PDO("mysql:dbname=haruisk; host=localhost;" ,"root","");
 
 $pdo->exec("insert into 4each_keijiban(handlename, title, comments)values
 ('".$_POST['handlename']."',

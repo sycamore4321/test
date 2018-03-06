@@ -9,13 +9,17 @@
 
 
 
-    
-    
-  
-    
-    
-    
-    
+<?php
+
+mb_internal_encoding("utf8");
+$pdo=new PDO("mysql:dbname=haruisk; host=localhost;", "root", "");
+$stmt=$pdo->query("select * from 4each_keijiban");
+
+       
+
+?>
+   
+   
     
 <body>
     
@@ -64,16 +68,23 @@
           </div>
 
           <div>
-            <input type="submit" class="submit" value="送信する">    
+            <input type="submit" class="submit" value="投稿する">    
           </div>
 
         </form>
 
-        <h3>タイトル</h3>
-        <p>記事の中身、記事の中身、記事の中身・・・</p>
         
-        <h3>タイトル</h3>
-        <p>記事の中身、記事の中身、記事の中身・・・</p>
+        <?php
+        
+        while ($row=$stmt->fetch()){
+        
+        echo "<h3>".$row['title']."</h3>";
+        echo $row['comments'];
+        echo "<div class='handlename'>posted by".$row['handlename']."</div>";
+            
+        }
+        ?>
+        
     </div>
     
     
